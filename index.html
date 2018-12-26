@@ -16,19 +16,26 @@
     <script type="text/babel">
         class App extends React.Component {
             state = {
-                name: "Cale",
+                name: 'Cale',
                 age: 208
             }
-            handleClick = (evt) => {
-                console.log(evt.target);
+            handleChange = (e) => {
+                this.setState({
+                    name: e.target.value
+                })
+            }
+            handleSubmit = (e) => {
+                e.preventDefault();
+                console.log('Form submitted', this.state.name)
             }
             render() {
                 return (
                     <div className="app-content">
-                        <h1>Hey, Aliens</h1>
-                        <p>My name is: { this.state.name } and I am { this.state.age }</p>
-                        <button onClick={ this.handleClick }>Click Me</button>
-                        <p onCopy={ this.handleCopy }>I am the greates</p>
+                        <h1>My name is: { this.state.name } and I am { this.state.age }</h1>
+                        <form onSubmit={ this.handleSubmit }>
+                            <input type='text' onChange={ this.handleChange } />
+                            <button>Submit</button>
+                        </form>
                     </div>
                 )
             }
