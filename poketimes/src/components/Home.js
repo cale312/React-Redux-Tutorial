@@ -15,7 +15,7 @@ class Home extends Component {
                             <Link to={'/'+post.id}>
                                 <span className="card-title red-text">{ post.title }</span>
                             </Link>
-                            <p>{ post.body }</p>
+                            <p>{ post.body.slice(0, 50) + '...' }</p>
                         </div>
                     </div>
                 )
